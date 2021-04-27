@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.AnnouncementMapper">
+
+    <select id="getAnnouncementList" resultType="AnnouncementBean">
+        SELECT * FROM mesg
+    </select>
+
+    <insert id="addAnnouncement" parameterType="AnnouncementBean">
+        INSERT INTO mesg(mesgTitle, mesgDesc, mesgAuthor, mesgDate, mesgPicture) values(#{mesgTitle}, #{mesgDesc}, #{mesgAuthor}, #{mesgDate}, #{mesgPicture})
+    </insert>
+
+    <delete id="deleteAnnouncement" parameterType="int">
+        DELETE FROM mesg WHERE mesgID = #{mesgID}
+    </delete>
+
+    <update id="updateAnnouncement" parameterType="AnnouncementBean">
+        UPDATE mesg SET mesgTitle = #{mesgTitle}, mesgDesc = #{mesgDesc}, mesgAuthor = #{mesgAuthor}, mesgPicture = #{mesgPicture} WHERE mesgID = #{mesgID}
+    </update>
+
+</mapper>

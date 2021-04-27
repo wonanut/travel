@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.ProductMapper">
+
+    <select id="getProductList" resultType="ProductBean">
+        SELECT * FROM product
+    </select>
+
+    <insert id="addProduct" parameterType="ProductBean">
+        INSERT INTO product(
+            productName, productDesc, productAuthor, productPicture, productPrice, productPhone, productRemain, productStatus, productDate, productStar
+        )
+        values(
+            #{productName}, #{productDesc}, #{productAuthor}, #{productPicture}, #{productPrice}, #{productPhone}, #{productRemain}, #{productStatus}, #{productDate}, #{productStar}
+        )
+    </insert>
+
+    <delete id="deleteProduct" parameterType="int">
+        DELETE FROM product WHERE productID = #{productID}
+    </delete>
+
+    <update id="updateProduct" parameterType="ProductBean">
+        UPDATE product SET productName = #{productName}, productDesc = #{productDesc}, productAuthor = #{productAuthor}, productPicture = #{productPicture}, productPrice = #{productPrice}, productPhone = #{productPhone}, productRemain = #{productRemain}, productStatus = #{productStatus}, productStar = #{productStar} WHERE productID = #{productID}
+    </update>
+
+</mapper>

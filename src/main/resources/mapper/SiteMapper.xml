@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.SiteMapper">
+
+    <select id="getSiteList" resultType="SiteBean">
+        SELECT * FROM site
+    </select>
+
+    <insert id="addSite" parameterType="SiteBean">
+        INSERT INTO site(siteTitle, siteCity, siteStar, sitePrice, siteDesc, sitePicture, siteAuthor) values(#{siteTitle}, #{siteCity}, #{siteStar}, #{sitePrice}, #{siteDesc}, #{sitePicture}, #{siteAuthor})
+    </insert>
+
+    <delete id="deleteSite" parameterType="int">
+        DELETE FROM site WHERE siteID = #{siteID}
+    </delete>
+
+    <update id="updateSite" parameterType="SiteBean">
+        UPDATE site SET siteTitle = #{siteTitle}, siteCity = #{siteCity}, siteStar = #{siteStar}, sitePrice = #{sitePrice}, siteDesc = #{siteDesc}, sitePicture = #{sitePicture}, siteAuthor = #{siteAuthor} WHERE siteID = #{siteID}
+    </update>
+
+</mapper>

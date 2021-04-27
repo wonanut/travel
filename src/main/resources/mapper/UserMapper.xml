@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.UserMapper">
+
+    <select id="getUserList" resultType="UserBean">
+        SELECT * FROM user
+    </select>
+
+    <select id="checkUser" resultType="UserBean">
+        SELECT * FROM user WHERE userName = #{userName} AND userPassword = #{userPassword}
+    </select>
+
+    <select id="getUser" resultType="UserBean" parameterType="String">
+        SELECT * FROM user WHERE userName = #{userName}
+    </select>
+
+    <insert id="addUser" parameterType="UserBean">
+        INSERT INTO user(userName, userPassword, userSex, userAge, userPhone, userDesc, userProfile) values(#{userName}, #{userPassword}, #{userSex}, #{userAge}, #{userPhone}, #{userDesc}, #{userProfile})
+    </insert>
+
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM user WHERE userID = #{userID}
+    </delete>
+
+    <update id="updateUser" parameterType="UserBean">
+        UPDATE user SET userName = #{userName}, userPassword = #{userPassword}, userSex = #{userSex}, userAge = #{userAge}, userPhone = #{userPhone}, userDesc = #{userDesc}, userProfile = #{userProfile}, userStatus = #{userStatus} WHERE userID = #{userID}
+    </update>
+
+</mapper>

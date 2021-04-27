@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    name: travel
+    url: jdbc:mysql://localhost:3306/travel?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 1002
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.travel.bean

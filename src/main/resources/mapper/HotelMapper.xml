@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.travel.mapper.HotelMapper">
+
+    <select id="getHotelList" resultType="HotelBean">
+        SELECT * FROM hotel
+    </select>
+
+    <insert id="addHotel" parameterType="HotelBean">
+        INSERT INTO hotel(hotelName, hotelAddress, hotelPrice, hotelDesc, hotelPicture, hotelStar, hotelAuthor, hotelDate, hotelPhone, hotelRemain, hotelStatus) values(#{hotelName}, #{hotelAddress}, #{hotelPrice}, #{hotelDesc}, #{hotelPicture}, #{hotelStar}, #{hotelAuthor}, #{hotelDate}, #{hotelPhone}, #{hotelRemain}, #{hotelStatus})
+    </insert>
+
+    <delete id="deleteHotel" parameterType="int">
+        DELETE FROM hotel WHERE hotelID = #{hotelID}
+    </delete>
+
+    <update id="updateHotel" parameterType="HotelBean">
+        UPDATE hotel SET hotelName = #{hotelName}, hotelAddress = #{hotelAddress}, hotelPrice = #{hotelPrice}, hotelDesc = #{hotelDesc}, hotelPicture = #{hotelPicture}, hotelStar = #{hotelStar}, hotelAuthor = #{hotelAuthor}, hotelPhone = #{hotelPhone}, hotelRemain = #{hotelRemain}, hotelStatus = #{hotelStatus} WHERE hotelID = #{hotelID}
+    </update>
+
+</mapper>
